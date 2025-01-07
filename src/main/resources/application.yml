@@ -28,6 +28,21 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
       open-in-view: false
       generate-ddl: true
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: ogbuehigideon775@gmail.com
+    password: chbqjkfuvernxfus
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
+
+
 #  flyway:
 #    enabled: true
 #    placeholderReplacement: false
@@ -64,3 +79,4 @@ server:
     include-binding-errors: always
     include-stacktrace: on_param
     include-exception: false
+
