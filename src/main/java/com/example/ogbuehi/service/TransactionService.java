@@ -61,8 +61,8 @@ public class TransactionService {
                 .orElseThrow(() -> new NoSuchElementFoundException(NOT_FOUND_TRANSACTION));
     }
 
-    public List<TransactionResponse> findAllByUserId(long userid) {
-        final List<Transaction> transactions = transactionRepository.findAllByUserId(userid);
+    public List<TransactionResponse> findAllByUserId(long userId) {
+        final List<Transaction> transactions = transactionRepository.findAllByUserId(userId);
         if (transactions.isEmpty())
             throw  new NoSuchElementFoundException(NOT_FOUND_RECORD);
 

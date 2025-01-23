@@ -28,7 +28,7 @@ public class OtpService {
         details.setMsgBody("N/B: This code will be valid for 5 minutes.Your verification code is :" + otpValue);
         emailService.sendSimpleMail(details);
 
-        validateOTP(key, otpValue);
+        validateOTP(key,otpValue);
     }
 
     /**

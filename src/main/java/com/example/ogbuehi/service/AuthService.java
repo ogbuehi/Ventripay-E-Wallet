@@ -45,19 +45,19 @@ public class AuthService {
      * @return id of the registered user
      */
     public CommandResponse signup(SignUpRequest request) {
-        if (userRepository.existsByUsernameIgnoreCase(request.getUsername().trim()))
+        if (userRepository.existsByUsernameIgnoreCase( request.getUsername().trim()) )
             throw new ElementAlreadyExistsException(ALREADY_EXISTS_USER_NAME);
 //        if (userRepository.existsByEmailIgnoreCase(request.getEmail().trim()))
 //            throw new ElementAlreadyExistsException(ALREADY_EXISTS_USER_EMAIL);
         if (!request.getPassword().equals(request.getConfirmPassword()))
             throw new IncorrectPasswordException(INCORRECT_PASSWORD);
 
-        otpService.generateOtpAndSendToEmail(request.getUsername());
+        otpService.generateOtpAndSendToEmail( request.getUsername() );
 
         final User user = signupRequestMapper.toEntity(request);
         userRepository.save(user);
-        log.info(CREATED_USER, new Object[]{user.getUsername()});
-        return CommandResponse.builder().id(user.getId()).build();
+        log.info(CREATED_USER, new Object[]{ user.getUsername() } );
+        return CommandResponse.builder().id( user.getId() ).build();
     }
 
     public JwtResponse login(LoginRequest request) {
